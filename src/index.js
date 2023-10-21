@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = data.message[0]
         document.body.appendChild(img)
     })
+    const breedDropdown = document.querySelector('#breed-dropdown')
+    breedDropdown.addEventListener('change', () => {
+        breedDropdown.onclick.forEach(onclick = breed => {
+            console.log(breed)
+        })
+    })
 
     fetch(breedUrl)
         .then(response => response.json())
@@ -26,12 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.innerText = breed
                 li.addEventListener('click', onclick => {
                     li.style.color = 'red'
-                    // fetch(breed).then(res => res.json()).then(data => {
-                    //     const img = document.createElement('img')
-                    //     img.src = data.message[0]
-                    //     document.body.appendChild(img)
-
-                    // })
                 })
                 ul.appendChild(li)
             }
